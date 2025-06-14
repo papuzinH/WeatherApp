@@ -1,12 +1,19 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-	mode: "jit",
-	purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
-	darkMode: false, // or 'media' or 'class'
+	content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
 	theme: {
-		extend: {},
-	},
-	variants: {
-		extend: {},
+		extend: {
+			backdropBlur: {
+				xs: '2px',
+			},
+			backgroundColor: {
+				'glass': 'rgba(255, 255, 255, 0.1)',
+				'glass-dark': 'rgba(0, 0, 0, 0.1)',
+			},
+			colors: {
+				'glass-border': 'rgba(255, 255, 255, 0.2)',
+			},
+		},
 	},
 	plugins: [],
 };

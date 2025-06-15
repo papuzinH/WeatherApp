@@ -24,7 +24,6 @@ const SearchBar = ({ onSearch, loading = false, getCurrentLocation }) => {
       setSuggestions(cities);
       setShowSuggestions(cities.length > 0);
     } catch (error) {
-      console.error('Error buscando ciudades:', error);
       setSuggestions([]);
       setShowSuggestions(false);
     } finally {
@@ -75,9 +74,10 @@ const SearchBar = ({ onSearch, loading = false, getCurrentLocation }) => {
 
   const handleInputChange = (e) => {
     setCity(e.target.value);
-  };  return (
+  };
+  return (
     <div
-      className="glass rounded-2xl p-4 hover-lift transition-all relative z-50"
+      className="glass rounded-2xl p-4  transition-all relative z-50"
       ref={searchRef}
     >
       <form onSubmit={handleSubmit} className="flex items-center space-x-4">
@@ -130,13 +130,15 @@ const SearchBar = ({ onSearch, loading = false, getCurrentLocation }) => {
             <WiRefresh className={`text-xl ${loading ? 'spinner' : ''}`} />
           </button>
         </div>
-      </form>      {/* Sugerencias */}
+      </form>{' '}
+      {/* Sugerencias */}
       {showSuggestions && suggestions.length > 0 && (
         <div
           ref={suggestionsRef}
           className="absolute top-full left-0 right-0 mt-2 bg-white/70 backdrop-blur-xl rounded-xl border border-white/40 max-h-60 overflow-y-auto z-[9999] shadow-2xl"
         >
-          {suggestions.map((suggestion, index) => (            <button
+          {suggestions.map((suggestion, index) => (
+            <button
               key={`${suggestion.lat}-${suggestion.lon}-${index}`}
               onClick={() => handleCitySelect(suggestion)}
               className="w-full text-left px-4 py-3 text-gray-900 hover:bg-white/50 transition-colors duration-200 border-b border-white/30 last:border-b-0 flex items-center space-x-2"
@@ -155,7 +157,6 @@ const SearchBar = ({ onSearch, loading = false, getCurrentLocation }) => {
           ))}
         </div>
       )}
-
       <div className="mt-3 text-center">
         <p className="text-white/60 text-xs">
           💡 Tip: Escribe al menos 3 caracteres para ver sugerencias

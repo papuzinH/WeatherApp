@@ -58,7 +58,7 @@ const WeeklyForecast = ({ data, isLoading = false }) => {  const getWeatherIcon 
   };
   if (isLoading) {
     return (
-      <div className="glass-card rounded-3xl p-6 w-full">
+      <div className="glass-card rounded-3xl p-6 w-full h-full ">
         <h3 className="text-xl font-bold text-white mb-4 text-center">
           📅 Pronóstico de 5 días
         </h3>
